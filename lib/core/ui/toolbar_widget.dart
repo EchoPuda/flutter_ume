@@ -28,20 +28,19 @@ const double _minimalHeight = 80;
 
 class _ToolBarWidgetState extends State<ToolBarWidget> {
   double _dy = 0;
-  late final double _maxDy;
+  late final double _minDy;
 
   @override
   void initState() {
     final bottomPadding = WidgetsBinding.instance.window.padding.bottom / ratio;
-    _maxDy =
-        windowSize.height - _minimalHeight - _dragBarHeight - bottomPadding;
-    _dy = _maxDy;
+    _minDy = _dragBarHeight + bottomPadding;
+    _dy = _minDy;
     super.initState();
   }
 
   void _dragEvent(DragUpdateDetails details) {
-    _dy += details.delta.dy;
-    _dy = min(max(0, _dy), _maxDy);
+    _dy += -details.delta.dy;
+    _dy = max(_dy, _minDy);
     setState(() {});
   }
 
@@ -49,7 +48,7 @@ class _ToolBarWidgetState extends State<ToolBarWidget> {
   Widget build(BuildContext context) {
     return Positioned(
       left: 0,
-      top: _dy,
+      bottom: _dy,
       child: _ToolBarContent(
         action: widget.action,
         dragCallback: _dragEvent,
