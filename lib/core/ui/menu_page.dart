@@ -76,14 +76,13 @@ class _MenuPageState extends State<MenuPage>
           children: <Widget>[
             Container(
               color: Colors.white,
-              height: 100,
               width: MediaQuery.of(context).size.width,
-              alignment: Alignment.bottomLeft,
+              alignment: Alignment.centerLeft,
               padding: const EdgeInsets.only(left: 16, right: 16),
               margin: const EdgeInsets.only(bottom: 10),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Row(
                     children: [
@@ -117,7 +116,10 @@ class _MenuPageState extends State<MenuPage>
                           style: const TextStyle(
                               fontSize: 60,
                               fontWeight: FontWeight.w800,
-                              color: Color(0xff454545)))),
+                              color: Color(0xff454545),
+                          ),
+                      ),
+                  ),
                 ],
               ),
             ),
@@ -143,7 +145,8 @@ class _MenuPageState extends State<MenuPage>
                             child: _MenuCell(pluginData: data),
                           );
                         },
-                      ))
+                      ),
+            ),
           ],
         ),
       ),
