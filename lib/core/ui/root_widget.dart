@@ -218,7 +218,7 @@ class _ContentPageState extends State<_ContentPage> {
   Widget? _menuPage;
   BuildContext? _context;
 
-  bool _minimalContent = false;
+  bool _minimalContent = true;
   Widget? _toolbarWidget;
 
   void dragEvent(DragUpdateDetails details) {
