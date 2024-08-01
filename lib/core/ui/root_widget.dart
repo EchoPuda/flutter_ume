@@ -315,7 +315,7 @@ class _ContentPageState extends State<_ContentPage> {
     });
     _storeManager.fetchMinimalToolbarSwitch().then((value) {
       setState(() {
-        _minimalContent = value ?? false;
+        _minimalContent = value ?? true;
       });
     });
     _dx = _windowSize.width - dotSize.width - margin * 4;
